@@ -1,0 +1,51 @@
+class Solution{
+    //Function to check if two arrays are equal or not.
+    public static boolean check(long A[],long B[],int N)
+    {
+        //Your code here
+        // Arrays.sort(A);
+        // Arrays.sort(B);
+        // for(int i=0;i<N;i++)
+        // {
+        //     if(A[i]!=B[i])
+        //     return false;
+        // }
+        // return true;
+        // HashSet<Long> set=new HashSet<>();
+        // for(int i = 0;i<N;i++)
+        // {
+        //     set.add(A[i]);
+        //     set.add(B[i]);
+        // }
+        // if(set.size()>N) return false;
+        // return true;
+        Map<Long,Integer> map = new HashMap<>();
+        
+        for(int i=0; i<N; i++){
+            
+            if(map.containsKey(A[i])){
+                map.put(A[i],map.get(A[i])+1);
+            }
+            else{
+                map.put(A[i],1);
+            }
+        }
+        
+        for(int i=0; i<N; i++){
+            if(map.containsKey(B[i])){
+                map.put(B[i],map.get(B[i])-1);
+            }
+            else{
+                return false;
+            }
+        }
+        
+        for(int i=0; i<N; i++){
+            if(map.get(A[i])!=0){
+                return false;
+            }
+        }
+        return true;
+    
+    }
+}
