@@ -1,0 +1,25 @@
+class Solution
+{
+    //Function to sort the binary array.
+    static void binSort(int A[], int N)
+    {
+        // add your code here
+        
+        
+        /**************
+        * No need to print the array
+        * ************/
+        int low=0,high=N-1,temp;
+        while(low<=high)
+        {
+            if(A[low] == 0) low++;
+            else{
+            temp=A[low];
+            A[low]=A[high];
+            A[high]=temp;
+            high--;
+        }
+        }
+    }
+}
+
