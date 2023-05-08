@@ -1,0 +1,27 @@
+class Compute {
+    
+    public static int missingNumber(int A[], int N)
+    {
+         // Your code goes here
+         int correctIndex,i=0,j;
+         while(i<N-1)
+         {
+             correctIndex=A[i]-1;
+             if(A[i]<N && A[i]!=A[correctIndex])
+             {
+                 int temp=A[i];
+                 A[i]=A[correctIndex];
+                 A[correctIndex]=temp;
+             }
+             else
+             i++;
+         }
+         for(j=0;j<N-1;j++)
+         {
+             if(A[j]-1!=j)
+             return j+1;
+             
+         }
+         return N;
+    }
+}
